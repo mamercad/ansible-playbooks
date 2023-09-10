@@ -1,0 +1,11 @@
+---
+- name: Ansible info
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Ansible info # noqa no-changed-when
+      ansible.builtin.shell:
+        cmd: |
+          ansible --version
+          ansible-galaxy collection list
