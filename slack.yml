@@ -1,0 +1,16 @@
+---
+- name: Slack
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Slack
+      community.general.slack:
+        token: "{{ lookup('ansible.builtin.env', 'SLACK_TOKEN') }}"
+        blocks:
+          - type: section
+            text:
+              type: mrkdwn
+              text: |-
+                *Foo*
+                Bar
